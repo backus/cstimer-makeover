@@ -68,7 +68,15 @@ function injectLink(rel, type, href){
   (document.head || document.documentElement).appendChild(elem);
 }
 
+function enforceSSL(){
+  if (window.location.protocol != 'https:') {
+    window.location.protocol = 'https:';
+  }
+}
+
 function main() {
+  enforceSSL();
+
   injectLink(
     'stylesheet',
     'text/css',
