@@ -136,6 +136,7 @@ input:disabled
     br
       display: none
 
+  // hide "List Times", "Donate", and "Scramble"
   &.c5, &.c3, &.c4
     display: none
 
@@ -148,13 +149,15 @@ input:disabled
   background-color: transparent
   color: $darkened-text-color
   transition: .1s linear color
+  // make times displayed by default
+  display: block
 
   &:hover
     color: lighten($darkened-text-color, 30%)
     transition: .1s linear color
 
   // Delete the session picker since I don't use it
-  .click, select, [type='button']
+  span.click, select, [type='button']
     display: none
 
 #scrambleDiv

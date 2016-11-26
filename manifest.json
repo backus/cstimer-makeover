@@ -4,8 +4,8 @@
   "version": "0.0",
   "content_scripts": [{
     "matches": ["https://cstimer.net/*"],
-    "js": ["script.js"],
+    "js": ["dist/script.js"],
     "run_at": "document_end"
   }],
-  "web_accessible_resources": ["styles.css"]
+  "web_accessible_resources": ["dist/styles.css"]
 }
