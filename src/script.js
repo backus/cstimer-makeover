@@ -47,8 +47,6 @@ var settings = {
   "session":      1,
   "stats":        true,
   "imgSize":      10,
-  "NTools":       3,
-  "toolsfunc":    "[\"image\",\"mtrnm\",\"trend\",\"cross\"]",
   "tools":        true,
   "useKSC":       true,
   "sessionName":  "{\"1\":1,\"2\":2,\"3\":3,\"4\":4,\"5\":5,\"6\":6,\"7\":7,\"8\":8,\"9\":9,\"10\":10,\"11\":11,\"12\":12,\"13\":13,\"14\":14,\"15\":15}",
@@ -56,7 +54,9 @@ var settings = {
 }
 
 function applySettings() {
-  localStorage.setItem('properties', JSON.stringify(settings));
+  var existingProperties = JSON.parse(localStorage.getItem('properties'));
+  Object.assign(existingProperties, settings)
+  localStorage.setItem('properties', JSON.stringify(existingProperties));
 }
 
 function injectStyles() {
