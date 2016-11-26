@@ -2,16 +2,6 @@ html, body, textarea {
   color: #fff;
   background-color: #001; }
 
-#leftbar {
-  color: #fff;
-  background-color: #001;
-  border-color: #223; }
-
-#logo {
-  color: #000;
-  border-color: #222;
-  background-color: #000; }
-
 .mybutton, .tab, .cntbar {
   border-color: #334; }
 
@@ -29,14 +19,18 @@ html, body, textarea {
 
 .click {
   color: #58f; }
+  .click:hover {
+    background-color: #223; }
 
 .mywindow, .popup, .dialog {
   border-color: #334; }
 
 .table {
-  border-color: #334; }
+  border: 0;
+  padding: 5px; }
   .table td, .table th {
-    border-color: #334; }
+    border: 0;
+    padding: 5px; }
 
 textarea, .tabValue {
   border-color: #334; }
@@ -46,8 +40,8 @@ textarea, .tabValue {
 
 select {
   color: #fff;
-  background: #001;
-  border-color: #334; }
+  border-color: #334;
+  background: #001; }
 
 input[type='button'], input[type='text'] {
   color: #fff;
@@ -60,17 +54,15 @@ html {
   font-family: "Helvetica Neue"; }
 
 body, #leftbar {
+  border: 0;
+  padding-top: 30px;
   background-color: #001;
+  border-color: #223;
   color: #fff; }
-
-.click {
-  color: #58f; }
-  .click:hover {
-    background-color: #223; }
 
 #scrambleDiv, #stats, #toolsDiv {
   box-shadow: none;
-  border: none; }
+  border: 0; }
 
 .mywindow, .popup, .dialog, #leftbar {
   box-shadow: none; }
@@ -78,22 +70,9 @@ body, #leftbar {
 table.sumtable {
   border-style: none; }
 
-.table {
-  border: none;
-  padding: 5px; }
-  .table td, .table th {
-    border: none;
-    padding: 5px; }
-
 div.myscroll {
   margin-top: 30px;
   height: 100%; }
-
-select {
-  background: #001; }
-
-#stats span.click, #stats select, #stats input[type="button"] {
-  display: none; }
 
 input:disabled {
   background: #495962; }
@@ -106,7 +85,6 @@ input:disabled {
 #avgstr {
   font-family: "Helvetica Neue";
   font-weight: 300;
-  font-size: 80%;
   font-size: 0.1em; }
 
 #logo {
@@ -139,10 +117,6 @@ input:disabled {
 #leftbar div.c5, #leftbar div.c3, #leftbar div.c4 {
   display: none; }
 
-#leftbar {
-  border: none;
-  padding-top: 30px; }
-
 #stats {
   font-family: "Helvetica Neue";
   top: 5.5em;
@@ -155,6 +129,8 @@ input:disabled {
   #stats:hover {
     color: #94a6b0;
     transition: 0.1s linear color; }
+  #stats .click, #stats select, #stats [type='button'] {
+    display: none; }
 
 #scrambleDiv {
   background-color: transparent; }
@@ -183,7 +159,7 @@ input:disabled {
 #toolsDiv {
   font-family: "Helvetica Neue";
   padding: 0 20px 20px 10px;
-  border-radius: 10px 0 0 0;
+  border-radius: 10px 0 0;
   color: #5f747f;
   display: table; }
   #toolsDiv br {
@@ -206,22 +182,22 @@ input:disabled {
     border: 1px solid #495962; }
 
 .popup {
-  border: none;
-  padding: 10px 20px 0 20px;
+  border: 0;
+  padding: 10px 20px 0;
   font-family: "Helvetica Neue";
   line-height: 2;
   font-size: 14px;
   color: transparent;
   text-align: left; }
-  .popup input[type=button] {
-    background-color: red;
+  .popup [type='button'] {
+    background-color: #ff0;
     color: #fff;
     margin-left: 10px;
     padding: 5px 9px;
     font-weight: bold;
     margin-bottom: 10px;
     border-radius: 50px; }
-  .popup input[type=text] {
+  .popup input[type='text'] {
     display: none; }
   .popup span:first-child {
     color: #fff; }
