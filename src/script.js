@@ -65,13 +65,22 @@ function injectLink(rel, type, href){
   elem.type = type;
   elem.href = href;
 
-  (document.head || document.documentElement).appendChild(elem);
+  document.documentElement.appendChild(elem);
 }
 
 function enforceSSL(){
   if (window.location.protocol != 'https:') {
     window.location.protocol = 'https:';
   }
+}
+
+// We restyle the sidebar and this results in it only filling half the
+// page. CSTimer automatically resizes the sidebar on window resize events
+// so we manually trigger changes after our other changes are injected
+function fixSidebar(){
+  var event = document.createEvent('HTMLEvents');
+  event.initEvent('resize', true, false);
+  document.dispatchEvent(event);
 }
 
 function main() {
@@ -90,6 +99,8 @@ function main() {
   );
 
   applySettings();
+
+  fixSidebar();
 }
 
 main()
