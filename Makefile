@@ -10,7 +10,7 @@ manifest:
 	cp src/manifest.json dist/manifest.json
 
 imgs:
-	cp -r img/ dist
+	cp -r img dist
 
 extension:
 	chrome --pack-extension=dist/ --pack-extension-key=cstimer.pem && \
