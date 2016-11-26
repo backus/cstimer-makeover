@@ -1,4 +1,4 @@
-default: styles script manifest
+default: styles script manifest img
 
 styles:
 	sass src/styles.sass dist/styles.css
@@ -8,6 +8,9 @@ script:
 
 manifest:
 	cp src/manifest.json dist/manifest.json
+
+img:
+	cp -r img/ dist/img
 
 extension:
 	chrome --pack-extension=dist/ --pack-extension-key=cstimer.pem && \

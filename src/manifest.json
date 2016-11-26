@@ -7,5 +7,5 @@
     "js": ["script.js"],
     "run_at": "document_end"
   }],
-  "web_accessible_resources": ["styles.css"]
+  "web_accessible_resources": ["styles.css", "img/favicon.png"]
 }

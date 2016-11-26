@@ -59,16 +59,28 @@ function applySettings() {
   localStorage.setItem('properties', JSON.stringify(existingProperties));
 }
 
-function injectStyles() {
-  var style = document.createElement('link');
-  style.rel = 'stylesheet';
-  style.type = 'text/css';
-  style.href = chrome.extension.getURL('styles.css');
-  (document.head||document.documentElement).appendChild(style);
+function injectLink(rel, type, href){
+  elem      = document.createElement('link');
+  elem.rel  = rel;
+  elem.type = type;
+  elem.href = href;
+
+  (document.head || document.documentElement).appendChild(elem);
 }
 
 function main() {
-  injectStyles();
+  injectLink(
+    'stylesheet',
+    'text/css',
+    chrome.extension.getURL('styles.css')
+  );
+
+  injectLink(
+    'icon',
+    'image/x-icon',
+    chrome.extension.getURL('img/favicon.png')
+  );
+
   applySettings();
 }
 
