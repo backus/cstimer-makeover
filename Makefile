@@ -1,5 +1,7 @@
 default: styles script manifest imgs
 
+release: default extension zip
+
 styles:
 	sass src/styles.sass dist/styles.css
 
@@ -15,3 +17,6 @@ imgs:
 extension:
 	chrome --pack-extension=dist/ --pack-extension-key=cstimer.pem && \
 		mv dist.crx dist/cstimer.crx
+
+zip:
+	zip -r cstimer.zip dist
