@@ -4,7 +4,7 @@ $secondary-color:     #58f
 $darkened-text-color: #495962
 $bg-color:            #001
 $white:               #fff
-$red:                 #f00
+$red:                 #c73737
 $hover-grey:          #223
 $ui-grey:             #334
 $button-color:        #08f
@@ -55,7 +55,7 @@ textarea, .tabValue
   background-color: $hover-grey
 
 select
-  color: $white
+  color: $darkened-text-color
   border-color: $ui-grey
   background: $bg-color
 
@@ -175,7 +175,6 @@ input:disabled
     padding: 6px 12px
     color: $darkened-text-color
     border: 1px solid $darkened-text-color
-    font-weight: bold
     margin-right: 10px
     font-size: 15px
 
@@ -265,22 +264,19 @@ input:disabled
 
 .dialog
   border: none
-  top: 10%
-  bottom: 10%
   opacity: 1.0
-  font-size: 15px
+  font-size: 14px
   color: lighten($darkened-text-color, 20%)
 
-  input[type=checkbox], select
-    margin-right: 10px
-
-  select
+  select, input
     padding: 6px 12px
     color: $darkened-text-color
     border: 1px solid $darkened-text-color
     font-weight: bold
     margin-left: 10px
-    font-size: 15px
+    margin-right: 20px
+    font-size: 14px
+    float: right
 
   .value
     position: auto
@@ -300,9 +296,6 @@ input:disabled
     td
       vertical-align: top
 
-    td:first-child
-      width: 200px
-
   .title
     display: none
 
@@ -311,6 +304,10 @@ input:disabled
 
     li
       padding: 10px 0
+      border-bottom: 1px solid rgba(255,255,255,0.05)
+
+      &:last-child
+        border-bottom: 0
 
   .button
     text-align: left
@@ -321,6 +318,12 @@ input:disabled
       padding: 10px 20px
       margin: 0 10px 0 0
       border: 0
+      background-color: #08f
+      color: #fff
+
+      &:last-child
+        background-color: $red
 
 #gray
   background-color: #000
+  opacity: 0.85 !important
