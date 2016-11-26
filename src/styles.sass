@@ -1,9 +1,10 @@
-$font-stack:          'Helvetica Neue'
+$font-stack:          'Helvetica Neue', 'Helvetica', sans-serif
+$font-stack-mono:     'Source Code Pro', 'Monaco', monospace
 $secondary-color:     #58f
 $darkened-text-color: #495962
-$black-background:    #001
+$bg-color:            #001
 $white:               #fff
-$red:                 #ff0
+$red:                 #f00
 $hover-grey:          #223
 $ui-grey:             #334
 $button-color:        #08f
@@ -13,7 +14,7 @@ $button-hover-color:  #112
 
 html, body, textarea
   color: $white
-  background-color: $black-background
+  background-color: $bg-color
 
 .mybutton, .tab, .cntbar
   border-color: $ui-grey
@@ -56,12 +57,12 @@ textarea, .tabValue
 select
   color: $white
   border-color: $ui-grey
-  background: $black-background
+  background: $bg-color
 
 input
   &[type='button'], &[type='text']
     color: $white
-    background: $black-background
+    background: $bg-color
     border-color: $ui-grey
 
   &:disabled
@@ -73,7 +74,7 @@ html
 body, #leftbar
   border: 0
   padding-top: 30px
-  background-color: $black-background
+  background-color: $bg-color
   border-color: $hover-grey
   color: $white
 
@@ -110,12 +111,16 @@ input:disabled
 #leftbar
   height: 6.75em
 
+  div
+    border-radius: 3px
+
 .mybutton
   border: 0
   font-family: $font-stack
 
-  &.enable span
-    color: $white
+  &.enable
+    span
+      color: $white
 
 #leftbar div
   &.c1, &.c2, &.c3, &.c4, &.c5, &.c6
@@ -131,7 +136,7 @@ input:disabled
 
     span
       font-family: $font-stack
-      font-size: 15px
+      font-size: 13px
 
     br
       display: none
@@ -142,10 +147,10 @@ input:disabled
 
 #stats
   font-family: $font-stack
-  top: 5.5em
+  top: 4em
   margin-top: 30px
-  font-size: 17px
-  padding-top: 30px
+  font-size: 16px
+  padding: 30px 0 10px 10px
   background-color: transparent
   color: $darkened-text-color
   transition: .1s linear color
@@ -185,7 +190,7 @@ input:disabled
 #scrambleTxt
   // sass-lint:disable no-important
   font-size: 24px !important
-  font-family: 'Source Code Pro', 'Monaco'
+  font-family: $font-stack-mono
   padding: 30px 0
   color: lighten($darkened-text-color, 20%)
 
@@ -195,6 +200,7 @@ input:disabled
   border-radius: 10px 0 0
   color: lighten($darkened-text-color, 10%)
   display: table
+  background-color: transparent
 
   br
     display: none
@@ -202,13 +208,18 @@ input:disabled
   div
     display: table-cell
     vertical-align: bottom
-    font-size: 16px
+    font-size: 15px
     padding: 10px
+
+    canvas
+      width: 200px !important
+      height: 150px !important
 
     div
       font-family: $font-stack
-      font-size: 18px
+      font-size: 14px
       line-height: 2
+      padding-bottom: 20px
 
       br
         display: block
@@ -251,3 +262,65 @@ input:disabled
     color: $white
     border-radius: 3px
     display: auto
+
+.dialog
+  border: none
+  top: 10%
+  bottom: 10%
+  opacity: 1.0
+  font-size: 15px
+  color: lighten($darkened-text-color, 20%)
+
+  input[type=checkbox], select
+    margin-right: 10px
+
+  select
+    padding: 6px 12px
+    color: $darkened-text-color
+    border: 1px solid $darkened-text-color
+    font-weight: bold
+    margin-left: 10px
+    font-size: 15px
+
+  .value
+    position: auto
+
+  .tab
+    border: 0
+    font-family: $font-stack
+    text-align: right
+    padding: 10px 20px
+
+    &.enable
+      color: #fff
+
+  table
+    position: auto
+
+    td
+      vertical-align: top
+
+    td:first-child
+      width: 200px
+
+  .title
+    display: none
+
+  .tabValue
+    border: none
+
+    li
+      padding: 10px 0
+
+  .button
+    text-align: left
+    margin-left: 120px
+    padding: 10px 0
+
+    .buttonOK
+      padding: 10px 20px
+      margin: 0 10px 0 0
+      border: 0
+
+#gray
+  background-color: #000
