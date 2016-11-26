@@ -1,2 +1,8 @@
 dist/
+
+# Browser extensions and certs
+*.crx
+*.pem
+*.zip
+
 .sass-cache
