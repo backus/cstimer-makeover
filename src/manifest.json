@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "CSTimer Makeover",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "content_scripts": [{
     "matches": ["https://cstimer.net/*", "http://cstimer.net/*"],
     "js": ["script.js"],
