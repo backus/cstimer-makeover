@@ -76,21 +76,17 @@ class TimerExtension {
 }
 
 type TimerSettings = {
-  showAvg:   boolean, // Show average stats below timer
   timerSize: number,  // Size of timer
   statsum:   boolean, // Show stat summary above sidebar
   stats:     boolean, // Display stats sidebar
-  imgSize:   number,  // Size of scramble
-  tools:     boolean  // Always display tools
+  imgSize:   number,  // Size of scramble image
 };
 
 const fixedSettings = {
-  showAvg:   true,
   timerSize: 20,
   statsum:   true,
   stats:     true,
   imgSize:   10,
-  tools:     true
 };
 
 (new TimerExtension(localStorage, fixedSettings)).setup();
