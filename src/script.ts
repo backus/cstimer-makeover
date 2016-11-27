@@ -1,63 +1,102 @@
-const fixedSettings = {
-  "showAvg":      true,
-  "timerSize":    20,
-  "scrSize":      15,
-  "disPrec":      "a",
-  "statsum":      true,
-  "printScr":     true,
-  "stats":        true,
-  "imgSize":      10,
-  "tools":        true
-};
+class TimerStorage {
+  storage: Storage;
 
-function applySettings() {
-  const existingProperties = JSON.parse(localStorage.getItem("properties"));
-  Object.assign(existingProperties, fixedSettings);
-  localStorage.setItem("properties", JSON.stringify(existingProperties));
-}
+  constructor(storage: Storage) {
+    this.storage = storage;
+  }
 
-function injectLink(rel: string, type: string, href: string) {
-  let elem  = document.createElement("link");
-  elem.rel  = rel;
-  elem.type = type;
-  elem.href = href;
+  fetch(key: string): TimerSettings {
+    return JSON.parse(this.fetchValue(key));
+  }
 
-  document.documentElement.appendChild(elem);
-}
+  write(key: string, changes: TimerSettings): void {
+    this.storage.setItem(key, JSON.stringify(changes));
+  }
 
-function enforceSSL() {
-  if (window.location.protocol !== "https:") {
-    window.location.protocol = "https:";
+  private fetchValue(key: string): string {
+    const value = this.storage.getItem(key);
+
+    if (value === null) {
+      throw "Unknown value at key " + key;
+    }
+
+    return value;
   }
 }
 
-// We restyle the sidebar and this results in it only filling half the
-// page. CSTimer automatically resizes the sidebar on window resize events
-// so we manually trigger changes after our other changes are injected
-function fixSidebar() {
-  const event = document.createEvent("HTMLEvents");
-  event.initEvent("resize", true, false);
-  document.dispatchEvent(event);
+class TimerExtension {
+  storage: TimerStorage;
+  readonly settings: TimerSettings;
+
+  constructor(storage: Storage, settings: TimerSettings) {
+    this.storage  = new TimerStorage(storage);
+    this.settings = settings;
+  }
+
+  setup() {
+    this.enforceSSL();
+
+    this.injectLink("stylesheet", "text/css", "styles.css");
+    this.injectLink("icon", "image/x-icon", "img/favicon.png");
+
+    this.applySettings();
+
+    this.fixSidebar();
+  }
+
+  private applySettings() {
+    const existingProperties = this.storage.fetch("properties");
+    Object.assign(existingProperties, this.settings);
+    this.storage.write("properties", existingProperties);
+  }
+
+  private injectLink(rel: string, type: string, url: string) {
+    let elem  = document.createElement("link");
+    elem.rel  = rel;
+    elem.type = type;
+    elem.href = chrome.extension.getURL(url);
+
+    document.documentElement.appendChild(elem);
+  }
+
+  private enforceSSL() {
+    if (window.location.protocol !== "https:") {
+      window.location.protocol = "https:";
+    }
+  }
+
+  // We restyle the sidebar and this results in it only filling half the
+  // page. CSTimer automatically resizes the sidebar on window resize events
+  // so we manually trigger changes after our other changes are injected
+  private fixSidebar() {
+    const event = document.createEvent("HTMLEvents");
+    event.initEvent("resize", true, false);
+    document.dispatchEvent(event);
+  }
 }
 
-function main() {
-  enforceSSL();
+type TimerSettings = {
+  showAvg:   boolean,
+  timerSize: number,
+  scrSize:   number,
+  disPrec:   string,
+  statsum:   boolean,
+  printScr:  boolean,
+  stats:     boolean,
+  imgSize:   number,
+  tools:     boolean
+};
 
-  injectLink(
-    "stylesheet",
-    "text/css",
-    chrome.extension.getURL("styles.css")
-  );
+const fixedSettings: TimerSettings = {
+  "showAvg":   true,
+  "timerSize": 20,
+  "scrSize":   15,
+  "disPrec":   "a",
+  "statsum":   true,
+  "printScr":  true,
+  "stats":     true,
+  "imgSize":   10,
+  "tools":     true
+};
 
-  injectLink(
-    "icon",
-    "image/x-icon",
-    chrome.extension.getURL("img/favicon.png")
-  );
-
-  applySettings();
-
-  fixSidebar();
-}
-
-main();
+(new TimerExtension(localStorage, fixedSettings)).setup();
