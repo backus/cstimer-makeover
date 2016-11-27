@@ -76,27 +76,21 @@ class TimerExtension {
 }
 
 type TimerSettings = {
-  showAvg:   boolean,
-  timerSize: number,
-  scrSize:   number,
-  disPrec:   string,
-  statsum:   boolean,
-  printScr:  boolean,
-  stats:     boolean,
-  imgSize:   number,
-  tools:     boolean
+  showAvg:   boolean, // Show average stats below timer
+  timerSize: number,  // Size of timer
+  statsum:   boolean, // Show stat summary above sidebar
+  stats:     boolean, // Display stats sidebar
+  imgSize:   number,  // Size of scramble
+  tools:     boolean  // Always display tools
 };
 
-const fixedSettings: TimerSettings = {
-  "showAvg":   true,
-  "timerSize": 20,
-  "scrSize":   15,
-  "disPrec":   "a",
-  "statsum":   true,
-  "printScr":  true,
-  "stats":     true,
-  "imgSize":   10,
-  "tools":     true
+const fixedSettings = {
+  showAvg:   true,
+  timerSize: 20,
+  statsum:   true,
+  stats:     true,
+  imgSize:   10,
+  tools:     true
 };
 
 (new TimerExtension(localStorage, fixedSettings)).setup();
