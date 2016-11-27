@@ -6,7 +6,7 @@ styles:
 	sass src/styles.sass dist/styles.css
 
 script:
-	tsc
+	tsc && tslint --project tsconfig.json
 
 manifest:
 	cp src/manifest.json dist/manifest.json
