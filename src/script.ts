@@ -65,10 +65,37 @@ class TimerExtension {
     }
   }
 
+  private fixSidebar() {
+    setTimeout(this.tryFixSidebar.bind(this), 100);
+  }
+
+  // Check if our sidebar has been restyled and resize it if possible
+  // Continues fixSidebar loop if the sidebar has not yet been restyled
+  private tryFixSidebar() {
+    if (this.sidebarStylesApplied()) {
+      this.simulateResize();
+    } else {
+      this.fixSidebar();
+    }
+  }
+
+  // Probe to check whether the sidebar has been restyled
+  // We alter the sidebar to not have a border so we check
+  // the computed styles to determine whether it has been updated
+  private sidebarStylesApplied(): boolean {
+    const scroll = document.querySelector(".myscroll");
+
+    if (scroll === null) throw "Expected to find scroll div";
+
+    const computedBorder: string = getComputedStyle(scroll).borderTop || "";
+
+    return computedBorder.substr(0, 3) === "1px";
+  }
+
   // We restyle the sidebar and this results in it only filling half the
   // page. CSTimer automatically resizes the sidebar on window resize events
   // so we manually trigger changes after our other changes are injected
-  private fixSidebar() {
+  private simulateResize() {
     const event = document.createEvent("HTMLEvents");
     event.initEvent("resize", true, false);
     document.dispatchEvent(event);
