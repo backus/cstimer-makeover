@@ -59,8 +59,8 @@ function applySettings() {
   localStorage.setItem('properties', JSON.stringify(existingProperties));
 }
 
-function injectLink(rel, type, href){
-  elem      = document.createElement('link');
+function injectLink(rel: string, type: string, href: string){
+  var elem  = document.createElement('link');
   elem.rel  = rel;
   elem.type = type;
   elem.href = href;
@@ -103,4 +103,4 @@ function main() {
   fixSidebar();
 }
 
-main()
+main();
