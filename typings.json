@@ -1,6 +1,8 @@
 {
   "dependencies": {},
   "globalDependencies": {
-    "chrome": "registry:dt/chrome#0.0.0+20160724063844"
+    "chrome": "registry:dt/chrome#0.0.0+20160724063844",
+    "filesystem": "registry:dt/filesystem#0.0.0+20160316155526",
+    "filewriter": "registry:dt/filewriter#0.0.0+20160316155526"
   }
 }
