@@ -1,6 +1,6 @@
 # CSTimer Makeover
 
-Opinionated chrome extension for restyling [cstimer](https://cstimer.net).
+Opinionated chrome extension for re-styling [CSTimer](https://cstimer.net). You can install it [on the Chrome store](https://chrome.google.com/webstore/detail/cstimer-makeover/omchdkmkmadmhkaamhpojgldknpihgcg).
 
 ## Before
 
