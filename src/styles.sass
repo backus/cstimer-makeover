@@ -1,15 +1,15 @@
 $font-stack:          'Helvetica Neue', 'Helvetica', sans-serif
 $font-stack-mono:     'Source Code Pro', 'Monaco', monospace
 $secondary-color:     #58f
-$darkened-text-color: #495962
+$darkened-text-color: #2a4881
 $bg-color:            #001
 $white:               #fff
 $red:                 #c73737
 $hover-grey:          #223
 $ui-grey:             #334
-$button-color:        #08f
 $button-hover-color:  #112
 $line-color:          darken($darkened-text-color, 20%)
+$hover-bg-color:      darken($darkened-text-color, 15%)
 
 @mixin select-field
   padding: 6px 12px
@@ -31,19 +31,19 @@ html, body, textarea
   background-color: $button-hover-color
 
 .mybutton.enable, .tab.enable, .cntbar
-  background-color: $button-color
+  background-color: $secondary-color
 
 #gray
   background-color: $white
 
 .times:hover, .click:hover, textarea
-  background-color: $ui-grey
+  background-color: $hover-bg-color
 
 .click
   color: $secondary-color
 
   &:hover
-    background-color: $hover-grey
+    background-color: $hover-bg-color
 
 .mywindow, .popup, .dialog
   border-color: $ui-grey
@@ -60,7 +60,7 @@ textarea, .tabValue
   border-color: $ui-grey
 
 #avgstr .click:hover
-  background-color: $hover-grey
+  background-color: $hover-bg-color
 
 select
   color: $darkened-text-color
@@ -153,6 +153,9 @@ input:disabled
     &.enable
       background-color: $secondary-color
 
+    &:hover
+      background-color: $hover-bg-color
+
     span
       font-family: $font-stack
       font-size: 13px
@@ -192,6 +195,9 @@ input:disabled
   span.click
     padding-right: 10px
     text-align: left
+
+    &:hover
+      background-color: $hover-bg-color
 
   select, input
     padding: 3px 6px
