@@ -9,6 +9,14 @@ $hover-grey:          #223
 $ui-grey:             #334
 $button-color:        #08f
 $button-hover-color:  #112
+$line-color:          darken($darkened-text-color, 20%)
+
+@mixin select-field
+  padding: 6px 12px
+  color: $darkened-text-color
+  border: 1px solid $darkened-text-color
+  margin-right: 10px
+  font-size: 15px
 
 // Forces cstimer of `#fff#001#112#08f#58f#000#000` so I can't override it
 
@@ -89,7 +97,10 @@ table.sumtable
   border-style: none
 
 div.myscroll
-  margin-top: 30px
+  border-top: 1px solid $line-color
+  margin-top: 15px
+  padding-top: 15px
+  padding-bottom: 30px
 
 input:disabled
   background: $darkened-text-color
@@ -108,14 +119,20 @@ input:disabled
   display: none
 
 #leftbar
-  height: 6.75em
+  display: block
+  top: 0
+  margin-top: 0
+  height: auto
 
   div
-    border-radius: 3px
+    border-radius: 40px
 
 .mybutton
   border: 0
   font-family: $font-stack
+
+  span
+    padding: 7px 2px
 
   &.enable
     span
@@ -133,6 +150,9 @@ input:disabled
     padding: 0 10px
     color: $secondary-color
 
+    &.enable
+      background-color: $secondary-color
+
     span
       font-family: $font-stack
       font-size: 13px
@@ -149,7 +169,7 @@ input:disabled
   top: 4em
   margin-top: 30px
   font-size: 16px
-  padding: 30px 0 10px 10px
+  padding: 0 0 10px 10px
   background-color: transparent
   color: $darkened-text-color
   transition: .1s linear color
@@ -160,9 +180,28 @@ input:disabled
     color: lighten($darkened-text-color, 30%)
     transition: .1s linear color
 
-  // Delete the session picker since I don't use it
-  span.click, select, [type='button']
-    display: none
+  .sumtable
+    border-top: 1px solid $line-color
+    margin-top: 20px
+    padding-top: 25px
+
+    tr:first-child
+      th
+        padding-top: 15px
+
+  span.click
+    padding-right: 10px
+    text-align: left
+
+  select, input
+    padding: 3px 6px
+    color: $darkened-text-color
+    border: 1px solid $darkened-text-color
+    margin-right: 10px
+    font-size: 15px
+
+  input
+    font-weight: bold
 
 #scrambleDiv
   background-color: transparent
@@ -171,11 +210,7 @@ input:disabled
     padding-top: 20px
 
   select
-    padding: 6px 12px
-    color: $darkened-text-color
-    border: 1px solid $darkened-text-color
-    margin-right: 10px
-    font-size: 15px
+    @include select-field
 
   nobr
     font-family: $font-stack
