@@ -12,10 +12,10 @@
         "sourceMap": true,
         "outDir": "dist",
         "lib": ["es6", "dom"],
-        "types": ["chrome"]
+        "types": []
     },
     "exclude": [
         "node_modules"
     ],
-    "files": ["src/script.ts"]
+    "files": ["typings/index.d.ts", "src/script.ts"]
 }
