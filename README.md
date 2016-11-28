@@ -1,12 +1,11 @@
 <p align="center">
   <a href="https://chrome.google.com/webstore/detail/cstimer-makeover/omchdkmkmadmhkaamhpojgldknpihgcg">
-    <img src="http://i.imgur.com/zAujsm7.png" align="center" alt="Logo">
+    <img src="logo.png" align="center" alt="Logo">
   </a>
 
-  Opinionated chrome extension for re-styling <a href="https://cstimer.net">CSTimer</a>. You can install it <a href="https://chrome.google.com/webstore/detail/cstimer-makeover/omchdkmkmadmhkaamhpojgldknpihgcg">on the Chrome store</a>.
+  Opinionated chrome extension for re-styling <a href="https://cstimer.net">CSTimer</a>. You can install it <a href="https://chrome.google.com/webstore/detail/cstimer-makeover/omchdkmkmadmhkaamhpojgldknpihgcg">on the Chrome Extension Store</a>.
+  <br />
 </p>
-
----
 
 ## Before
 
