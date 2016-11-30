@@ -1,4 +1,4 @@
-$font-stack:          'Helvetica Neue', 'Helvetica', sans-serif
+$font-stack:          'Roboto', 'Helvetica Neue', 'Helvetica', sans-serif
 $font-stack-mono:     'Source Code Pro', 'Monaco', monospace
 $secondary-color:     #58f
 $darkened-text-color: #2a4881
@@ -10,6 +10,8 @@ $ui-grey:             #334
 $button-hover-color:  #112
 $line-color:          darken($darkened-text-color, 20%)
 $hover-bg-color:      darken($darkened-text-color, 15%)
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400')
 
 @mixin select-field
   padding: 6px 12px
@@ -107,7 +109,7 @@ input:disabled
 
 #lcd
   font-family: $font-stack
-  font-weight: 300
+  font-weight: 100
   font-size: 80%
 
 #avgstr
